@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+        <record id="actions_fields_hr_payslip_form" model="ir.ui.view">
+              <field name="name">actions.fields.hr.payslip.form</field>
+              <field name="model">hr.payslip</field>
+              <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+              <field name="arch" type="xml">
+                  <xpath expr="//page[last()]" position="after">
+                      <page string="Actions">
+                          <group>
+                              <group string="Addition">
+                                  <field name="Performance_incentive" string="حافز أداء"/>
+                                  <field name="reward" string="مكافأة"/>
+                                  <field name="approved_hours_overtime" string="اضافي ساعات"/>
+                                  <field name="approved_days_overtime" string="اضافي ايام"/>
+                                  <field name="other_benefits" string="استحقاقات اخري"/>
+                              </group>
+                              <group string="Deduction">
+                                  <field name="without_balance_leave" string="اجازة بدون رصيد" readonly="1"/>
+                                  <field name="absence_without_permission" string="غياب بدون اذن" readonly="1"/>
+                                  <field name="no_permission_absence_penalty" string="عقوبة غياب بدون اذن"/>
+                                  <field name="no_finger_print_penalty" string="عقوبة عدم توقيع بصمة"/>
+                                  <field name="penalties" string="جزاءات"/>
+                                  <field name="net_late_hours" string="صافي ساعات التأخير" readonly="1"/>
+                                  <field name="other_discount" string="خصومات أخرى"/>
+                              </group>
+                          </group>
+                      </page>
+                  </xpath>
+              </field>
+        </record>
+  </data>
+</odoo>

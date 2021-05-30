@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!--    add page for employee attendance to payslip -->
+      <record id="emp_attendance_hr_payslip_form" model="ir.ui.view">
+          <field name="name">emp.attendance.hr.payslip.form</field>
+              <field name="model">hr.payslip</field>
+              <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+              <field name="arch" type="xml">
+                  <xpath expr="//page[@name='account_info']" position="after">
+                      <page string="Employee Attendance">
+                          <group string="Load Employee Attendance">
+                              <button string="Load Emp Att" name="load_emp_attendance" type="object"/>
+                          </group>
+                          <field name="employee_attendance_ids">
+                              <tree>
+                                  <field name="employee_id"/>
+                                  <field name="check_in"/>
+                                  <field name="check_out"/>
+                                  <field name="worked_hours" widget="float_time"/>
+                                  <field name="late" widget="float_time"/>
+                                  <field name="over_time" widget="float_time"/>
+                                  <field name="early_sign_in" widget="float_time"/>
+                                  <field name="early_leave" widget="float_time"/>
+                              </tree>
+                          </field>
+                      </page>
+                      <page string="Employee Shifts">
+                          <field name="employee_shift_ids">
+                              <tree>
+                                  <field name="name"/>
+                                  <field name="date_from"/>
+                                  <field name="date_to"/>
+                                  <field name="hour_from"/>
+                                  <field name="hour_to"/>
+                              </tree>
+                          </field>
+                      </page>
+                      <page string="Employee Over Time">
+                          <field name="employee_overtime_ids">
+                              <tree>
+                                  <field name="employee_id"/>
+                                  <field name="name"/>
+                                  <field name="date_from"/>
+                                  <field name="date_to"/>
+                                  <field name="days_no_tmp"/>
+                              </tree>
+                          </field>
+                      </page>
+                  </xpath>
+              </field>
+      </record>
+  </data>
+</odoo>

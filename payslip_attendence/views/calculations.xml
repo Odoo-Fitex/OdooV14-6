@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+        <record id="calculation_hr_payslip_form" model="ir.ui.view">
+              <field name="name">calculation.hr.payslip.form</field>
+              <field name="model">hr.payslip</field>
+              <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+              <field name="arch" type="xml">
+                  <xpath expr="//page[last()]" position="after">
+                      <page string="Calculations">
+                          <group string="Load Employee Attendance">
+                                  <button string="Calculate" name="calculate_action" type="object" class="btn-success"/>
+                          </group>
+                          <group string="Days">
+                              <field name="month_days" string="عدد ايام الشهر"/>
+                              <field name="attendance_days"/>
+                              <field name="finger_print_attendance_days" string="ايام الحضور من البصمة"/>
+                              <field name="annual_vacation_2020" string="أجازه سنويه 2020"/>
+                              <field name="annual_vacation_2019" string="أجازه سنويه 2019"/>
+                              <field name="rest_allowance" string="بدل راحه"/>
+                              <field name="days_mission" string="مأموريات أيام"/>
+                              <field name="sick_leave_100" string="أجازه مرضي 100 %"/>
+                              <field name="sick_leave_70" string="أجازه مرضي 75 %"/>
+                              <field name="without_balance_leave" string="أجازه بدون رصيد"/>
+                              <field name="death_leave" string="أجازه وفاه"/>
+                              <field name="maternity_leave" string="أجازه وضع"/>
+                              <field name="haj_omra_leave" string="أجازه حج / عمره"/>
+                              <field name="work_injury" string="إصابه عمل"/>
+                              <field name="marriage_vacation" string="أجازه زواج"/>
+                              <hr style="border: 2px solid green;"/>
+                              <separator/>
+                              <field name="absence_without_permission" string="غياب بدون اذن"/>
+                              <field name="over_days" string="اضافي ايام"/>
+                          </group>
+                          <separator/>
+                          <hr style="border: 3px solid red;"/>
+                          <separator/>
+                          <group string="Hours">
+                              <group string="late Hours">
+                                  <field name="total_late_hours" string="اجمالي ساعات التأخير من البصمة" widget="float_time"/>
+                                  <field name="hours_mission" string="مأموريات ساعات" widget="float_time"/>
+                                  <field name="late_permission" string="إذن تأخير" widget="float_time"/>
+                                  <field name="health_insurance_permission" string="إذن تأمين صحي" widget="float_time"/>
+                                  <field name="car_late_permission" string="إذن تأخير- سياره" widget="float_time"/>
+                                  <hr style="border: 2px solid green;"/>
+                                  <separator/>
+                                  <field name="compute_late_hours" string=" ساعات التأخير" widget="float_time"/>
+                              </group>
+                              <group string="Early Sign Out Hours">
+                                  <field name="total_sign_out_hours" string="اجمالي ساعات الانصراف المبكر" widget="float_time"/>
+                                  <field name="early_sign_out" string="إنصراف مبكر" widget="float_time"/>
+                                  <field name="exile_permission" string="إذن مغتربين" widget="float_time"/>
+                                  <hr style="border: 2px solid green;"/>
+                                  <separator/>
+                                  <field name="compute_sign_out_hours" string="صافي الانصراف المبكر" widget="float_time"/>
+                              </group>
+                          </group>
+                          <group string="Net Late Hours">
+                              <field name="net_late_hours" string="صافي ساعات التأخير" widget="float_time"/>
+<!--                              <field name="total_sign_out_hours" string="اجمالي ساعات الانصراف المبكر"/>-->
+                          </group>
+                      </page>
+                  </xpath>
+              </field>
+        </record>
+  </data>
+</odoo>
